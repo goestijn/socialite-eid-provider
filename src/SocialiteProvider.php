@@ -1,6 +1,6 @@
 <?php
 
-namespace Goestijn\SocialiteProviderEid;
+namespace Goestijn\SocialiteEidProvider;
 
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Http;
@@ -87,30 +87,5 @@ class SocialiteProvider extends AbstractProvider
                 'validity_end' => \Carbon\Carbon::parse($user['beid_card_validity_end']),
             ]
         ]);
-    }
-
-    /**
-     * Obtain client id and client secret
-     *
-     * @param  string $redirect
-     * @return array
-     */
-    public static function config(string $redirect): array
-    {
-        if ($config = Cache::get('eid-idp.keys'))
-            return $config;
-
-
-        $config = Http::throw()->withHeaders(['Content-Type' => 'application/json'])->post('https://www.e-contract.be/eid-idp/oidc/auth/register', [
-            'redirect_uri' => [$redirect]
-        ])->json();
-
-        Cache::add('eid-idp.keys', [
-            'client_id' => $config['client_id'],
-            'client_secret' => $config['client_secret'],
-            'redirect' => $redirect,
-        ], now()->parse($config['client_secret_expires_at']));
-
-        return self::config($redirect);
     }
 }

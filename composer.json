@@ -1,5 +1,5 @@
 {
-    "name": "goestijn/socialiteprovider-eid",
+    "name": "goestijn/socialite-eid-provider",
     "description": "Socialite driver to authenticate users via e-contract auth-provider via their eid",
     "type": "library",
     "license": "MIT",
@@ -16,13 +16,13 @@
     },
     "autoload": {
         "psr-4": {
-            "Goestijn\\SocialiteProviderEid\\": "src/"
+            "Goestijn\\SocialiteEidProvider\\": "src/"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "Goestijn\\SocialiteProviderEid\\PackageServiceProvider"
+                "Goestijn\\SocialiteEidProvider\\PackageServiceProvider"
             ]
         }
     }
