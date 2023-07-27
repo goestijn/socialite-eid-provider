@@ -1,0 +1,29 @@
+{
+    "name": "goestijn/socialiteprovider-eid",
+    "description": "Socialite driver to authenticate users via e-contract auth-provider via their eid",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+      {
+        "name": "Stijn Goethals",
+        "email": "stijn@goethals-degraeve.net"
+      }
+    ],
+    "require": {
+        "php": "^7.4 || ^8.0",
+        "illuminate/support": "^6.0 || ^7.0 || ^8.0 || ^9.0 || ^10.0",
+        "laravel/socialite": "~5.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Goestijn\\SocialiteProviderEid\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Goestijn\\SocialiteProviderEid\\PackageServiceProvider"
+            ]
+        }
+    }
+  }
